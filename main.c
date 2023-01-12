@@ -37,6 +37,7 @@
 #include <locale.h>
 
 #include "main.h"
+#include "disclaimer.h"
 
 // Initial mode is to show the disclaimer
 int globalMode = MODE_DISCLAIMER;
@@ -54,15 +55,13 @@ int main() {
     curs_set(0);            // Disable the cursor
 
     while (globalMode != MODE_EXIT) {
-        // Clear the screen
-        clear();
-        
         // Render according to mode
         switch (globalMode) {
             case MODE_DISCLAIMER:
                 drawDisclaimerView();
                 break;
             default:
+                clear();
                 break;
         }
 
@@ -70,10 +69,15 @@ int main() {
         refresh();
         napms(10);
 
-        
-
-        // Correct timer settings minutes (in case changes were made to them)
-        correctTimerSettings(&studyMinutes, &breakMinutes);
+        // Handle user input according to mode
+        switch (globalMode) {
+            case MODE_DISCLAIMER:
+                handleDisclaimerKeyPress();
+                break;
+            default:
+                clear();
+                break;
+        }
     }
 
     // Exit after the main program loop is done
@@ -81,4 +85,3 @@ int main() {
     endwin();                // End curses mode
     return 0;                // Zero exit code meaning that it exited correctly 
 }
-

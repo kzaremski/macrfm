@@ -1,2 +1,2 @@
 macrfm: main.c
-	gcc main.c -o macrfm -lncurses
+	gcc main.c disclaimer.c -o macrfm -lncurses

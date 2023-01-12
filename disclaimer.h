@@ -32,36 +32,6 @@
     ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-#include <ncurses.h>
-#include <stdbool.h>
+void drawDisclaimerView();
+void handleDisclaimerKeyPress();
 
-#include "main.h"
-#include "disclaimer.h"
-
-extern int globalMode;
-
-// Draw the disclaimer view
-void drawDisclaimerView() {
-    // Clear the screen
-    clear();
-
-    // Draw the box around the main screen
-
-
-
-
-}
-
-// Handle key presses made while in the disclaimer mode/view
-void handleDisclaimerKeyPress() {
-    // Handle user input according to mode
-    switch (getch()) {
-        // F10 or q will exit the program
-        case KEY_F(10):
-        case 'q':
-            globalMode = MODE_EXIT;
-            break;
-        default:
-            break;
-    }
-}
