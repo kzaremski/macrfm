@@ -1,2 +1,2 @@
-studytimer: studytimer.c
-	gcc -o studytimer studytimer.c -lncurses
+macrfm: main.c
+	gcc main.c -o macrfm -lncurses
